@@ -1,7 +1,5 @@
 # EventEcho Project
 
-**Name:** Elizabeth Rakhi Baby
-
 ## Technologies Used
 - **Frontend:** React, JSF, PrimeFaces
 - **Backend:** Java EE

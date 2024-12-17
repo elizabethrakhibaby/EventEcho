@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Create an Event
+    </ui:define>
+    <ui:define name="Header" class = "headerForContent" ><b>Create your own event!</b></ui:define>
+
+    <ui:define name="content">
+        <h:form id= "form" >
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    Create New Event
+                </f:facet>
+                <h:outputLabel for="eventTitle">Event Title: </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="eventTitle" value="#{eventManagedBean.eventTitle}" 
+                                 required="true" requiredMessage="Event Title is required" />
+                    <p:message for="eventTitle" /> 
+                </h:panelGroup>
+
+                <h:outputLabel for="date">Event Date (dd/mm/yyyy):</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="date" value="#{eventManagedBean.date}"
+                                 required="true" requiredMessage="Event date is required"
+                                 converterMessage="Format should be dd/mm/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputText>
+                    <p:message for="date" /> 
+                </h:panelGroup>
+
+
+                <h:outputLabel for="location">Location:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="location" value="#{eventManagedBean.location}" 
+                                 required="true" requiredMessage="Location is required" />
+                    <p:message for="location" />
+                </h:panelGroup>
+
+
+                <h:outputLabel for="description">Event Description: </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="description" value="#{eventManagedBean.description}" 
+                                 required="true" requiredMessage="Description is required" />
+                    <p:message for="description" />
+                </h:panelGroup>
+
+
+                <h:outputLabel for="deadline">Deadline to register for event (dd/mm/yyyy): </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="deadline" value="#{eventManagedBean.deadline}"
+                                 required="true" requiredMessage="Deadline to register is required"
+                                 converterMessage="Format should be dd/mm/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputText>
+                    <p:message for="deadline" /> 
+                </h:panelGroup>
+            </p:panelGrid>
+            <br />
+
+            <p:commandButton value="Submit"
+                             actionListener="#{eventManagedBean.addEvent}"
+                             action="searchCreatedEvents.xhtml?faces-redirect=true"
+                             update=":form"/>
+        </h:form>
+    </ui:define>
+
+
+
+
+
+
+
+</ui:composition>

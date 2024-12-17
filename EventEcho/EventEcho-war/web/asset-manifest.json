@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/EventEcho-war/static/css/main.bb3f2905.css",
+    "main.js": "/EventEcho-war/static/js/main.db9946db.js",
+    "static/js/453.0874c0b0.chunk.js": "/EventEcho-war/static/js/453.0874c0b0.chunk.js",
+    "static/media/fa-solid-900.svg": "/EventEcho-war/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
+    "static/media/fa-brands-400.svg": "/EventEcho-war/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
+    "static/media/ss.png": "/EventEcho-war/static/media/ss.f2d54f99f704bf1f6f97.png",
+    "static/media/fa-solid-900.eot": "/EventEcho-war/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
+    "static/media/fa-solid-900.ttf": "/EventEcho-war/static/media/fa-solid-900.be9ee23c0c6390141475.ttf",
+    "static/media/fa-regular-400.svg": "/EventEcho-war/static/media/fa-regular-400.4689f52cc96215721344.svg",
+    "static/media/fa-brands-400.eot": "/EventEcho-war/static/media/fa-brands-400.23f19bb08961f37aaf69.eot",
+    "static/media/fa-brands-400.ttf": "/EventEcho-war/static/media/fa-brands-400.527940b104eb2ea366c8.ttf",
+    "static/media/fa-solid-900.woff": "/EventEcho-war/static/media/fa-solid-900.eeccf4f66002c6f2ba24.woff",
+    "static/media/logo.png": "/EventEcho-war/static/media/logo.06d00d135bfbba8f6dfb.png",
+    "static/media/fa-brands-400.woff": "/EventEcho-war/static/media/fa-brands-400.2285773e6b4b172f07d9.woff",
+    "static/media/fa-solid-900.woff2": "/EventEcho-war/static/media/fa-solid-900.1551f4f60c37af51121f.woff2",
+    "static/media/fa-brands-400.woff2": "/EventEcho-war/static/media/fa-brands-400.d878b0a6a1144760244f.woff2",
+    "static/media/fa-regular-400.eot": "/EventEcho-war/static/media/fa-regular-400.77206a6bb316fa0aded5.eot",
+    "static/media/fa-regular-400.ttf": "/EventEcho-war/static/media/fa-regular-400.491974d108fe4002b2aa.ttf",
+    "static/media/fa-regular-400.woff": "/EventEcho-war/static/media/fa-regular-400.bb58e57c48a3e911f15f.woff",
+    "static/media/fa-regular-400.woff2": "/EventEcho-war/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
+    "index.html": "/EventEcho-war/index.html",
+    "main.bb3f2905.css.map": "/EventEcho-war/static/css/main.bb3f2905.css.map",
+    "main.db9946db.js.map": "/EventEcho-war/static/js/main.db9946db.js.map",
+    "453.0874c0b0.chunk.js.map": "/EventEcho-war/static/js/453.0874c0b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb3f2905.css",
+    "static/js/main.db9946db.js"
+  ]
+}

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        My Registrations
+    </ui:define>
+    <ui:define name="Header" class = "headerForContent" >
+        <b>View your registered events!</b>
+        <p>Cancel your registration if needed.</p>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <p:dataTable var="registration"
+                         value="#{eventManagedBean.registrationsForOneUser}"
+                         resizableColumns="false">
+                <p:column headerText="Registration Id" styleClass="compact-column">
+                    <h:outputText value="#{registration.registrationId}"/>
+                </p:column>
+                <p:column headerText="Event Title" styleClass="compact-column">
+                    <h:outputText value="#{registration.event.eventTitle}"/>
+                </p:column>
+                <p:column headerText="View event details">
+                    <p:commandButton icon="fa fa-fw fa-search" update=":form:eventDetails" oncomplete="PF('eventDialog').show()" title="View">
+                        <f:setPropertyActionListener value="#{registration}" target="#{eventManagedBean.selectedRegistration}" />
+                    </p:commandButton>
+                    </p:column>
+                    <p:column headerText="Unregister">
+                    <p:commandButton icon="fa fa-fw fa-remove"
+                                     action="#{eventManagedBean.deleteRegistration}" update=":form"
+                                     title="Delete">
+                        <font color="red"> Unregister from event</font> <span style="margin-right: 10px;"></span>
+                        <f:param name="registrationId" value="#{registration.registrationId}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+            <p:dialog header="Event Details" widgetVar="eventDialog" modal="false" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="eventDetails">
+                    <p:panelGrid columns="2" rendered="#{not empty eventManagedBean.selectedRegistration}">
+                        <h:outputText value="Event Id" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.event.eventId}" />
+                        <h:outputText value="Event Title" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.event.eventTitle}" />
+                        <h:outputText value="Date" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.event.date}">
+                            <f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="Location" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.event.location}" />
+                        <h:outputText value="Description" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.event.description}" />
+                        <h:outputText value="Deadline" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.event.deadline}">
+                            <f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="Registration Date" />
+                        <h:outputText value="#{eventManagedBean.selectedRegistration.registrationDate}" />
+                        <h:outputText value="Current Attendance Status" />
+                        <h:outputText value="Attended" rendered="#{eventManagedBean.selectedRegistration.attendanceStatus == true}" />
+                        <h:outputText value="Did Not Attend" rendered="#{eventManagedBean.selectedRegistration.attendanceStatus == false}" />
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+
+
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

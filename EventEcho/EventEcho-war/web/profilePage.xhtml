@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./default.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        My Profile
+    </ui:define>
+    <ui:define name="Header" class = "headerForContent" ><b>Hey! Welcome to your Profile Page</b></ui:define>
+    <!-- comment -->
+
+
+    <ui:define name="content"  >
+        <f:metadata>
+            <!-- load the selected person -->
+            <f:event type="preRenderView" listener="#{personManagedBean.loadSelectedPerson}"/>
+        </f:metadata>
+        <h:form id="form" enctype="multipart/form-data">
+            <!-- using growl -->
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    Edit Profile
+
+                </f:facet>
+                <h:outputLabel for="profilePicture">Profile Picture:  </h:outputLabel>
+                <h:panelGroup id="profilePicDisplay">
+                    <img src="upload/#{personManagedBean.profilePicture}" style="width: 100px; height: auto;" alt="Profile Picture" />
+                </h:panelGroup>
+
+
+
+
+                <h:outputLabel for="name">Name: </h:outputLabel>
+                <p:inputText id="name" value="#{personManagedBean.name}"
+                             required = "true"
+                             requiredMessage="Name is required" />
+                <h:outputLabel for= "contactNumber">Contact Number: </h:outputLabel>
+                <p:inputText id="contactNumber" value="#{personManagedBean.contactNumber}"
+                             required = "true"
+                             requiredMessage="Contact Number is required" />
+                <h:outputLabel for= "email">Email: </h:outputLabel>
+                <p:inputText id="email" value="#{personManagedBean.email}"
+                             required = "true"
+                             requiredMessage="Email is required" />
+            </p:panelGrid>
+            <br />
+
+            <p:commandButton value="Submit"
+                             actionListener="#{personManagedBean.updatePerson}"
+                             action="profilePage.xhtml?faces-redirect=true"
+                             update=":form"/>
+ 
+
+        </h:form>
+        <p> Select new profile picture </p>
+        <h:form enctype="multipart/form-data">
+             <h:inputFile id="profilePicture" value="#{personManagedBean.uploadedFile}" required = "true" requiredMessage="Choose a picture first"/>
+             <h:message for="profilePicture" />
+            <h:commandButton action="#{personManagedBean.uploadPPExistingPerson}" value="Upload"/>
+        </h:form>
+
+    </ui:define>
+
+    <!-- comment -->
+
+</ui:composition>

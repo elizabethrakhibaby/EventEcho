@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login </title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #A8D7E1;
+            }
+
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <h:form>
+            <h:outputText value="Login" style="font-weight: bold; display: block;" /><br/>
+
+
+            Username: <h:inputText value="#{authenticationManagedBean.username}"/><br/><br/>
+            Password: <h:inputSecret value="#{authenticationManagedBean.password}"/><br/><br/>
+
+            <!-- using action instead of actionListener -->
+            <h:commandButton value="Login" action="#{authenticationManagedBean.login}" />
+            <h:commandButton value="Register" action="register?faces-redirect=true"/>
+        </h:form>
+    </h:body>
+</html>
+

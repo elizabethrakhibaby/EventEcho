@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title><ui:insert name="title">Title</ui:insert></title>
+
+        <style>
+            body {
+                background-color: pink;
+                font-family: Roboto, Arial, sans-serif;
+
+
+                font-size: 16px;
+
+
+                .flex-container {
+                    display: flex;
+                    justify-content: space-around; /* Or 'space-between' depending on desired spacing */
+                }
+                .flex-item {
+                    flex: 1; /* Each child will take an equal amount of space */
+                }
+                .ui-layout-unit-west {
+                    /* Add your styling properties here */
+                    background-color: #fae6be; /* Example background color */
+                    border: 1px solid #ccc; /* Example border */
+                    padding: 10px; /* Example padding */
+                }
+                .ui-layout-unit-west a {
+                    display: block;
+                    padding: 10px;
+                    color: #333;
+                    text-decoration: none;
+                    border-bottom: 1px solid #ddd;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+                .ui-layout-unit-west a:hover {
+                    background-color: #e9ecef;
+                    color: #0056b3;
+                }
+                .ui-layout-unit-centre {
+                    /* Add your styling properties here */
+                    background-color: #b6f0d4; /* Example background color */
+                    border: 1px solid #ccc; /* Example border */
+                    padding: 20px; /* Example padding */
+                }
+            }
+
+        </style>
+
+    </h:head>
+
+    <h:body>
+
+        <p:layout>
+            <p:layoutUnit position="west" resizable="true"
+                          size="200" minSize="40" maxSize="300" styleClass = "ui-layout-unit-west">
+                <h:panelGroup layout="block">
+                    <a href="profilePage.xhtml">My Profile</a><br />
+                    <a href="createEvent.xhtml">Create New Event</a><br />
+                    <a href="searchCreatedEvents.xhtml">My Created Events</a><br />
+                    <a href="searchAllEvents.xhtml">Search for Events</a><br />
+                    <a href="searchMyRegistrations.xhtml">My Registrations</a><br />
+                    <h:form>
+                        <h:commandButton value="Logout" action="#{authenticationManagedBean.logout}" />
+                    </h:form>
+                </h:panelGroup>
+            </p:layoutUnit>
+            <p:layoutUnit position="center" styleClass = "ui-layout-unit-centre">
+                <ui:insert name="Header"  ></ui:insert>
+                <ui:insert name="content">Content</ui:insert>
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+
+</html>

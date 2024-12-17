@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./defaultPreLogin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #A8D7E1;
+            }
+
+        </style>
+    </h:head>
+    <ui:define name="title">
+        Register
+    </ui:define>
+
+
+    <ui:define name="content">
+        <h:form id= "form" enctype="multipart/form-data" >
+            <p:panelGrid columns="2" >
+                <f:facet name="header">
+                    <b>Register</b>
+                </f:facet>
+                <h:outputLabel for="userName">Username: </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="userName" value="#{personManagedBean.username}" 
+                                 required="true" requiredMessage="Username is required" />
+                    <p:message for="userName" /> 
+                </h:panelGroup>
+
+
+
+                <h:outputLabel for="password">Password:</h:outputLabel>
+                <h:panelGroup>
+                    <p:password id="password" value="#{personManagedBean.password}" 
+                                required="true" requiredMessage="Password is required" />
+                    <p:message for="password" />
+                </h:panelGroup>
+
+
+
+                <h:outputLabel for="name">Name: </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="name" value="#{personManagedBean.name}" 
+                                 required="true" requiredMessage="Name is required" />
+                    <p:message for="name" />
+                </h:panelGroup>
+
+
+                <h:outputLabel for="contactNumber">Contact Number: </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="contactNumber" value="#{personManagedBean.contactNumber}" 
+                                 required="true" requiredMessage="Contact Number is required" />
+                    <p:message for="contactNumber" />
+                </h:panelGroup>
+
+
+                <h:outputLabel for="email">Email: </h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="email" value="#{personManagedBean.email}" 
+                                 required="true" requiredMessage="Email is required" />
+                    <p:message for="email" />
+                </h:panelGroup>
+
+                <h:outputLabel for="profilePicture">Profile Picture: </h:outputLabel>
+                <h:panelGroup>
+                    <h:inputFile id="profilePicture" value="#{personManagedBean.uploadedFile}" 
+                                 required="true" requiredMessage="Profile Picture is required" />
+                    <h:message for="profilePicture" />
+                </h:panelGroup>
+
+
+            </p:panelGrid>
+
+
+            <p:commandButton value="Register"
+                             actionListener="#{personManagedBean.addPerson}"
+                             action="login.xhtml?faces-redirect=true"
+                             update=":form"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

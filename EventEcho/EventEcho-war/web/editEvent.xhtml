@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" >
+
+
+
+    <ui:define name="title">
+        Edit Event
+    </ui:define>
+
+    <ui:define name="Header">
+        Edit details of your event!
+    </ui:define>
+
+    <ui:define name="content">
+        <f:metadata>
+            <!-- to get the eventId and bind it to a eventId in event managed bean -->
+            <f:viewParam name="eventId" value="#{eventManagedBean.eventId}" />
+            <!-- load the selected event -->
+            <f:event type="preRenderView" listener="#{eventManagedBean.loadSelectedEvent}"/>
+        </f:metadata>
+        <h:form id="form">
+            <!-- using growl -->
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    Edit Event
+                </f:facet>
+                <h:outputLabel for="eventTitle">Event Title: </h:outputLabel>
+                <p:inputText id="eventTitle" value="#{eventManagedBean.eventTitle}"
+                             required="true"
+                             requiredMessage="Event Title is required" />
+
+                <h:outputLabel for="location">Location: </h:outputLabel>
+                <p:inputText id="location" value="#{eventManagedBean.location}"
+                             required="true"
+                             requiredMessage="Location is required" />
+
+                <h:outputLabel for="description">Description: </h:outputLabel>
+                <p:inputText id="description" value="#{eventManagedBean.description}"
+                             required="true"
+                             requiredMessage="Description is required" />
+
+            </p:panelGrid>
+
+            <p:commandButton value="Submit"
+                             actionListener="#{eventManagedBean.updateEvent}"
+                             action="searchCreatedEvents.xhtml?faces-redirect=true"
+                             update=":form"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
